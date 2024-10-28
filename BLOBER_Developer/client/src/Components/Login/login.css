@@ -1,0 +1,86 @@
+.sec-login{
+    display: flex;
+    flex-flow: row;
+    
+    width: 100vw;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+.login-pack{
+    background-color: white;
+
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+
+    width: 50%;
+    min-width: 270px;
+    max-width: 450px;
+
+}
+
+.login-heading{
+
+    font-size: 3.2rem;
+    font-family: serif;
+    font-weight: 600;
+
+   
+
+}
+.login-sub-heading {
+
+    padding: 5px;
+    border-bottom: 1px solid saddlebrown;
+
+    margin-left: 20px;
+}
+.login-email , .login-pass{
+    position: relative;
+    top: 10px;
+    left: 10px;
+
+    background-color: white;
+    width: fit-content;
+
+    font-weight: 600;
+    font-size: 1.2rem;
+
+}
+
+.login-form{
+
+    margin: 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.login-form >input{
+font-size: 1.1rem;
+font-weight: 550;
+
+padding: 5px;
+
+}
+
+.lspace {
+    height: 1.3rem;
+    font-size: 1.1rem;
+    padding: 1px;
+    
+}
+
+
+.login-submit{
+    margin: 10px;
+    padding: 10px;
+    font-size: 2.2rem;
+
+    align-self: start;
+
+    border-radius: 20px;
+    border: 1px solid saddlebrown;
+}
+
