@@ -1,0 +1,13 @@
+# Setting ling-ending attributes here -  
+
+* text=auto
+
+# Set specific formats
+
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
