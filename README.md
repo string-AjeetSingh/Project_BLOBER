@@ -1,2 +1,2 @@
-# BLOBER
-Contain Project BLOBER, its Developer Folder and Production Folder.
+# Project Blober
+Contain Project Blober, its Developer Folder and Production Folder.
