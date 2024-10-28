@@ -1,0 +1,65 @@
+.about-pack{
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+
+    
+ 
+
+}
+.about-heading{
+    font-size: 2.6rem;
+    font-family: serif;
+
+    padding: 5px;
+
+    background-color: wheat
+    
+}
+.about-data{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: saddlebrown;
+    margin-top: 5px;
+    padding: 5px;
+    line-height: 1.5;
+    font-size: 1.3rem;
+    color: rgb(249, 192, 192);
+    
+}
+.blods{
+    display: inline-block;
+    
+    background-color: rgb(223, 148, 10);
+    border-radius: 5px;
+    padding: 2px;
+    margin: 3px;
+    color:rgb(192, 21, 135);
+}
+.about1img-pack{
+    padding: 5px;
+    background-color: brown;
+    
+    width: 80%;
+    
+}
+.about1img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.about2img-pack{
+    padding: 5px;
+    
+    border-radius: 50%;
+    
+    width: 60%;
+    min-width: 300px;
+    
+}
+.about2img{
+    border: 10px dotted purple;
+    width: 100%;
+    border-radius: 50%;
+}
