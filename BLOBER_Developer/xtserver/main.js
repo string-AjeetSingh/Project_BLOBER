@@ -9,14 +9,22 @@ const alib = require('./LIB/PracLib/alib');
 
 const port = 3500;
 const app = express();
+<<<<<<< HEAD
 const apiAddress = 'http://localhost:3500/xt/api/';
+=======
+const apiAddress = '/xt/api/';
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
 
 //Config-----------------------------------------------------------
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+<<<<<<< HEAD
 //app.use(express.static(path.join(__dirname, 'clientBuild/build')));
+=======
+app.use(express.static(path.join(__dirname, 'clientBuild/build')));
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
 
 app.use(session({
     saveUninitialized :false,
@@ -47,6 +55,7 @@ app.use(cors({
 }));
 */
 
+<<<<<<< HEAD
 const allowedOrigins = ['http://localhost:3000', 'http://localhost:3000/Login'];
     app.use(cors({
         
@@ -66,11 +75,38 @@ const allowedOrigins = ['http://localhost:3000', 'http://localhost:3000/Login'];
                 }))
                  
 
+=======
+/* 
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3000/Login',
+    
+    ];
+    app.use(cors({
+        
+origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Check if the origin is in the allowedOrigins array
+    if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+        return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+        },
+        methods: ['GET', 'POST'], // Allow specific HTTP methods
+        credentials: true // Enable credentials (cookies, authorization headers, etc.)
+        }))
+*/
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
     //------------------------------------------------------------------
 
 
 
+<<<<<<< HEAD
 app.get('http://localhost:3500/xt/api', (req, res) => {
+=======
+app.get('/xt/api', (req, res) => {
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
     res.type('html');
 
     res.send(`
@@ -79,7 +115,11 @@ app.get('http://localhost:3500/xt/api', (req, res) => {
 })
 
 
+<<<<<<< HEAD
 app.get('http://localhost:3500/xt/api/session/:name', (req, res) => {
+=======
+app.get('/xt/api/session/:name', (req, res) => {
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
     res.type('html');
 
     req.session.user = {username : req.params.name, age  : 21};
@@ -90,6 +130,7 @@ app.get('http://localhost:3500/xt/api/session/:name', (req, res) => {
         `).end();
 })
 
+<<<<<<< HEAD
 app.post('http://localhost:3500/xt/api/registration',  handle.registration);
 app.post('http://localhost:3500/xt/api/login',  handle.login);
 //app.post('http://localhost:3500/xt/api/rough',  handle.rough);
@@ -112,6 +153,31 @@ app.get("*", (req, res) => {
    
     // res.sendFile(path.join(__dirname, 'clientBuild/build/index.html'));
      res.type('html').send(<h1>Welcome to Servr XT</h1>).end();
+=======
+app.post('/xt/api/registration',  handle.registration);
+app.post('/xt/api/login',  handle.login);
+//app.post('/xt/api/rough',  handle.rough);
+//app.get('/xt/api/rough',  handle.rough);
+app.post('/xt/api/checkLogin', handle.checkLogin);
+app.post('/xt/api/logout', handle.logout);
+app.post('/xt/api/fetch/trending', handle.trending);
+app.post('/xt/api/fetch/recent', handle.recent);
+app.post('/xt/api/fetch/recentPostUser', handle.recentPostUser);
+app.post('/xt/api/fetch/like', handle.getlike);
+app.post('/xt/api/fetch/liked', handle.getliked);
+app.post('/xt/api/fetch/post', handle.getpost);
+app.post('/xt/api/fetch/comments', handle.getcomments);
+app.post('/xt/api/like', handle.setlike);
+app.post('/xt/api/deletePost', handle.deletePoste);
+app.post('/xt/api/createPost', handle.createPost);
+app.post('/xt/api/createComment', handle.createComment);
+
+app.get("*", (req, res, next) => {
+    // res.type('html');
+    
+     res.sendFile(path.join(__dirname, 'clientBuild/build/index.html'));
+     
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
  })
 
 app.listen(port, () => {

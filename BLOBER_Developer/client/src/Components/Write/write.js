@@ -86,7 +86,11 @@ function Like({ param, children }) {
             name: param.name
         }
 
+<<<<<<< HEAD
         let res = await fetch('http://localhost:3500/xt/api/fetch/like',
+=======
+        let res = await fetch('/xt/api/fetch/like',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -107,7 +111,11 @@ function Like({ param, children }) {
             name: param.name
         }
 
+<<<<<<< HEAD
         let res = await fetch('http://localhost:3500/xt/api/like',
+=======
+        let res = await fetch('/xt/api/like',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -527,7 +535,11 @@ export { Write };
 //Function Ahead.....................................
 async function fetchRecentPostUser() {
 
+<<<<<<< HEAD
     let res = await fetch("http://localhost:3500/xt/api/fetch/recentPostUser",
+=======
+    let res = await fetch("/xt/api/fetch/recentPostUser",
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         {
             method: "POST", headers: { 'content-type': 'application/json' },
             credentials: 'include'
@@ -551,7 +563,11 @@ async function deletepost(par) {
     let data = {
         name: par
     }
+<<<<<<< HEAD
     let res = await fetch("http://localhost:3500/xt/api/deletePost",
+=======
+    let res = await fetch("/xt/api/deletePost",
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         {
             method: "POST", headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -576,7 +592,11 @@ async function createPost(par) {
         title: par.title,
         data: par.data
     }
+<<<<<<< HEAD
     let res = await fetch("http://localhost:3500/xt/api/createPost",
+=======
+    let res = await fetch("/xt/api/createPost",
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         {
             method: "POST", headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data), credentials: 'include'

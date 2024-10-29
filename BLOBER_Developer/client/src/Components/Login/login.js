@@ -37,7 +37,11 @@ function Login() {
             pass: pass
         }
 
+<<<<<<< HEAD
         fetch('http://localhost:3500/xt/api/login',
+=======
+        fetch('/xt/api/login',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', body: JSON.stringify(data),
                 headers: { 'content-type': 'application/json' },
@@ -71,7 +75,11 @@ function Login() {
     function checkLogin() {
       ///  console.log("Recently loaded");
 
+<<<<<<< HEAD
         fetch('http://localhost:3500/xt/api/checkLogin',
+=======
+        fetch('/xt/api/checkLogin',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },

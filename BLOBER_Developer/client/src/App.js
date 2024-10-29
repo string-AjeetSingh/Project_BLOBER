@@ -25,7 +25,11 @@ function App({ param, children }) {
   function checkLogin(mode = 'default') {
     ///console.log("Recently loaded");
 
+<<<<<<< HEAD
     fetch('http://localhost:3500/xt/api/checkLogin',
+=======
+    fetch('/xt/api/checkLogin',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
       {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -50,7 +54,11 @@ function App({ param, children }) {
 
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
+<<<<<<< HEAD
               fetch('http://localhost:3500/xt/api/logout',
+=======
+              fetch('/xt/api/logout',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -91,7 +99,11 @@ function App({ param, children }) {
 
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
+<<<<<<< HEAD
               fetch('http://localhost:3500/xt/api/logout',
+=======
+              fetch('/xt/api/logout',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -131,7 +143,11 @@ function App({ param, children }) {
 
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
+<<<<<<< HEAD
               fetch('http://localhost:3500/xt/api/logout',
+=======
+              fetch('/xt/api/logout',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -175,7 +191,11 @@ function App({ param, children }) {
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
 
+<<<<<<< HEAD
               fetch('http://localhost:3500/xt/api/logout',
+=======
+              fetch('/xt/api/logout',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },

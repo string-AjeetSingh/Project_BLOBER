@@ -57,7 +57,11 @@ function Like({ param, children }) {
             name: param.name
         }
 
+<<<<<<< HEAD
         let res = await fetch('http://localhost:3500/xt/api/fetch/like',
+=======
+        let res = await fetch('/xt/api/fetch/like',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -78,7 +82,11 @@ function Like({ param, children }) {
             name: param.name
         }
 
+<<<<<<< HEAD
         let res = await fetch('http://localhost:3500/xt/api/like',
+=======
+        let res = await fetch('/xt/api/like',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data), credentials : 'include'
@@ -99,7 +107,11 @@ function Like({ param, children }) {
             from : param.from
         }
 
+<<<<<<< HEAD
         let res = await fetch('http://localhost:3500/xt/api/fetch/liked',
+=======
+        let res = await fetch('/xt/api/fetch/liked',
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data), credentials : 'include'
@@ -251,7 +263,11 @@ async function fetchPost(par) {
         name : par
     }
 
+<<<<<<< HEAD
     let res = await fetch("http://localhost:3500/xt/api/fetch/post",
+=======
+    let res = await fetch("/xt/api/fetch/post",
+>>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         { method: "POST", headers: { 'content-type': 'application/json' },
     body : JSON.stringify(data) }
     );
