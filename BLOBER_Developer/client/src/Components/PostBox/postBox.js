@@ -1,5 +1,5 @@
-import {useState, useRef, useEffect} from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Comment } from '../Comment/comment';
 import { ButtonAnimation } from '../Animation/animation';
@@ -25,12 +25,12 @@ function Cards({ param, children }) {
                     </div>
                     <Like param={{
                         name: param.data.name,
-                        from : param.data.from,
+                        from: param.data.from,
                         setup: param.setup
                     }}></Like>
                 </div>
                 <div className="card-title">
-                   <u> {param.data.title}</u> 
+                    <u> {param.data.title}</u>
                 </div>
                 <textarea readOnly
                     value={param.data.data}
@@ -45,7 +45,7 @@ function Like({ param, children }) {
     const [lstate, setlstate] = useState(null);
     const aref = useRef(null);
     const bref = useRef(true);
- 
+
 
 
 
@@ -57,11 +57,7 @@ function Like({ param, children }) {
             name: param.name
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/fetch/like',
-=======
         let res = await fetch('/xt/api/fetch/like',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -72,7 +68,7 @@ function Like({ param, children }) {
             let js = await res.json();
             return js;
         } else {
-           /// console.log("error like connection")
+            /// console.log("error like connection")
         }
     }
 
@@ -82,14 +78,10 @@ function Like({ param, children }) {
             name: param.name
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/like',
-=======
         let res = await fetch('/xt/api/like',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(data), credentials : 'include'
+                body: JSON.stringify(data), credentials: 'include'
             }
         )
 
@@ -104,17 +96,13 @@ function Like({ param, children }) {
     async function checkLiked() {
         let data = {
             name: param.name,
-            from : param.from
+            from: param.from
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/fetch/liked',
-=======
         let res = await fetch('/xt/api/fetch/liked',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(data), credentials : 'include'
+                body: JSON.stringify(data), credentials: 'include'
             }
         )
 
@@ -139,15 +127,15 @@ function Like({ param, children }) {
 
     useEffect(() => {
 
-        checkLiked().then((res)=>{
+        checkLiked().then((res) => {
 
-            if(res.output1 || res.output2){
-               if(aref.current){
-                   aref.current.style.backgroundColor = 'gray';
-               }
+            if (res.output1 || res.output2) {
+                if (aref.current) {
+                    aref.current.style.backgroundColor = 'gray';
+                }
                 bref.current = false;
             }
-            else{
+            else {
 
             }
         });
@@ -162,9 +150,9 @@ function Like({ param, children }) {
 
     return (
         <>
-            <div ref={aref} onClick={async() => {
-               await ButtonAnimation(aref);
-               if(bref.current){
+            <div ref={aref} onClick={async () => {
+                await ButtonAnimation(aref);
+                if (bref.current) {
                     handleLikeButt();
                 }
             }} className='like-pack'>
@@ -177,46 +165,46 @@ function Like({ param, children }) {
 }
 
 
-function PostBox({children}){
-    let {name} = useParams();
+function PostBox({ children }) {
+    let { name } = useParams();
     let decodeName = decodeURIComponent(name);
-    const [dataPost, setDataPost] = useState(null);  
- 
+    const [dataPost, setDataPost] = useState(null);
+
 
 
     //.............................................
-   useEffect(()=>{
-   
-        let lfun = async () =>{
+    useEffect(() => {
+
+        let lfun = async () => {
             let data = await fetchPost(decodeName);
-       /// console.log(data.data[0]);
-        setDataPost(data.data[0]);
+            /// console.log(data.data[0]);
+            setDataPost(data.data[0]);
         }
 
         lfun();
-    return ()=>{
+        return () => {
 
-    }        
-   }, [decodeName])
+        }
+    }, [decodeName])
     //.............................................
 
     ///console.log(dataPost);
     return (
-    <>
-    <div className="postBox-pack">
-    {dataPost?<Cards param={{data : dataPost}}
-    ></Cards>:'No Post Data'}
-     
-    </div><hr></hr>
-    <div className="comment-pack">
-        <Comment  postName={decodeName}
-        ></Comment>
-    </div>
-     </>
+        <>
+            <div className="postBox-pack">
+                {dataPost ? <Cards param={{ data: dataPost }}
+                ></Cards> : 'No Post Data'}
+
+            </div><hr></hr>
+            <div className="comment-pack">
+                <Comment postName={decodeName}
+                ></Comment>
+            </div>
+        </>
     );
 }
 
-export {PostBox};
+export { PostBox };
 
 
 
@@ -259,21 +247,19 @@ export {PostBox};
 
 async function fetchPost(par) {
 
-    let data =  {
-        name : par
+    let data = {
+        name: par
     }
 
-<<<<<<< HEAD
-    let res = await fetch("http://localhost:3500/xt/api/fetch/post",
-=======
     let res = await fetch("/xt/api/fetch/post",
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
-        { method: "POST", headers: { 'content-type': 'application/json' },
-    body : JSON.stringify(data) }
+        {
+            method: "POST", headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        }
     );
 
     if (res.ok) {
-       /// console.log('connection succesfull');
+        /// console.log('connection succesfull');
 
         let js = await res.json();
         return js

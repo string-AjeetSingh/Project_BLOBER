@@ -16,10 +16,10 @@ function Trending({ param, children }) {
     }
 
     useEffect(() => {
-       /// console.log(param.swi);
+        /// console.log(param.swi);
         if (param.swi == 1) {
             let result;
-           /// console.log("Trending");
+            /// console.log("Trending");
             aref.current.style.backgroundColor = 'wheat';
 
             fetchTrending().then((result) => {
@@ -61,7 +61,7 @@ function Recently({ param, children }) {
 
 
 
-           /// console.log("Recent");
+            /// console.log("Recent");
             aref.current.style.backgroundColor = 'wheat';
 
             fetchRecent().then((result) => {
@@ -94,8 +94,8 @@ function Recently({ param, children }) {
 function Cards({ param, children }) {
     const navigate = useNavigate();
     const aref = useRef(null);
-   /// console.log('below data from cards');
-   /// console.log(param.data);
+    /// console.log('below data from cards');
+    /// console.log(param.data);
     return (
         <>
             <div className="card-contain">
@@ -109,18 +109,18 @@ function Cards({ param, children }) {
                     </div>
                     <Like param={{
                         name: param.data.name,
-                        from : param.data.from,
+                        from: param.data.from,
                         setup: param.setup
                     }}></Like>
                 </div>
                 <div className="card-title">
-                   <u> {param.data.title}</u> 
+                    <u> {param.data.title}</u>
                 </div>
                 <textarea readOnly
                     value={param.data.data}
                     className='card-data'></textarea>
                 <div className='card-date'>{param.data.date}</div>
-                <button ref={aref} onClick={ async ()=>{
+                <button ref={aref} onClick={async () => {
                     await ButtonAnimation(aref);
                     navigate(`postbox/${encodeURIComponent(param.data.name)}`);
                 }} className='readmore'>Read More</button>
@@ -133,7 +133,7 @@ function Like({ param, children }) {
     const [lstate, setlstate] = useState(null);
     const aref = useRef(null);
     const bref = useRef(true);
- 
+
 
 
 
@@ -145,11 +145,7 @@ function Like({ param, children }) {
             name: param.name
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/fetch/like',
-=======
         let res = await fetch('/xt/api/fetch/like',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -160,7 +156,7 @@ function Like({ param, children }) {
             let js = await res.json();
             return js;
         } else {
-           /// console.log("error like connection")
+            /// console.log("error like connection")
         }
     }
 
@@ -170,14 +166,10 @@ function Like({ param, children }) {
             name: param.name
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/like',
-=======
         let res = await fetch('/xt/api/like',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(data), credentials : 'include'
+                body: JSON.stringify(data), credentials: 'include'
             }
         )
 
@@ -192,17 +184,13 @@ function Like({ param, children }) {
     async function checkLiked() {
         let data = {
             name: param.name,
-            from : param.from
+            from: param.from
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/fetch/liked',
-=======
         let res = await fetch('/xt/api/fetch/liked',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(data), credentials : 'include'
+                body: JSON.stringify(data), credentials: 'include'
             }
         )
 
@@ -227,13 +215,13 @@ function Like({ param, children }) {
 
     useEffect(() => {
 
-        checkLiked().then((res)=>{
+        checkLiked().then((res) => {
 
-            if(res.output1 || res.output2){
+            if (res.output1 || res.output2) {
                 aref.current.style.backgroundColor = 'gray';
                 bref.current = false;
             }
-            else{
+            else {
 
             }
         });
@@ -250,7 +238,7 @@ function Like({ param, children }) {
         <>
             <div ref={aref} onClick={async () => {
                 await ButtonAnimation(aref);
-                if(bref.current){
+                if (bref.current) {
                     handleLikeButt();
                 }
             }} className='like-pack'>
@@ -262,55 +250,55 @@ function Like({ param, children }) {
     );
 }
 
-function NavCardButt({param, children}){
-    
-    const {swi2, setswi2} = useContext(MyContext2);
-    
+function NavCardButt({ param, children }) {
+
+    const { swi2, setswi2 } = useContext(MyContext2);
+
     const aref = useRef();
-   
-
-    useEffect(()=>{
-        
-        if(swi2){
-           /// console.log(' from naveCardButt swi');
 
 
-            if(swi2 == param.swiequalent){
-                
-             
-                
-            aref.current.style.border = '2px solid black';
-        }else{
-            aref.current.style.border = '1px solid purple';
-            
+    useEffect(() => {
+
+        if (swi2) {
+            /// console.log(' from naveCardButt swi');
+
+
+            if (swi2 == param.swiequalent) {
+
+
+
+                aref.current.style.border = '2px solid black';
+            } else {
+                aref.current.style.border = '1px solid purple';
+
+            }
         }
-    }
-        
+
     }, [swi2])
 
 
 
-    function handleClick(){
-       setswi2(param.swiequalent);
-       let arr = [];
-                param.data.forEach(element => {
-                arr.push(<Cards param={{
-                    data: element,
+    function handleClick() {
+        setswi2(param.swiequalent);
+        let arr = [];
+        param.data.forEach(element => {
+            arr.push(<Cards param={{
+                data: element,
 
-                }} />)
-            });
-            param.setenddata(arr);
+            }} />)
+        });
+        param.setenddata(arr);
 
     }
-    
+
     return (
-    <>
-    <button ref={aref} onClick={()=>{
-        handleClick();
-    }} className='nav-card-button'>
-        {children}
-    </button>
-     </>
+        <>
+            <button ref={aref} onClick={() => {
+                handleClick();
+            }} className='nav-card-button'>
+                {children}
+            </button>
+        </>
     );
 }
 
@@ -318,11 +306,11 @@ function NavCardButt({param, children}){
 function NavCard({ param, children }) {
 
     let [lstate, setlstate] = useState(null);
-   /// console.log('from NavCard : ');
+    /// console.log('from NavCard : ');
     ///console.log(param.data);
 
-       //.........................................
-       class useData {
+    //.........................................
+    class useData {
         constructor() {
             this.length = param.data.data.length;
             this.pos = 0;
@@ -339,7 +327,7 @@ function NavCard({ param, children }) {
                 return false;
             }
         }
-        reset(){
+        reset() {
             this.pos = 0;
         }
     }
@@ -361,26 +349,26 @@ function NavCard({ param, children }) {
         ///console.log('no of cards = ' + arr.length);
         param.setenddata(arr);
     }
-    function  setDefaultEndData(arrdata){
-       /// console.log("Form setDefaultEndData");
-          let arr = [];
-          arrdata.forEach(element => {
-              
-              ///console.log(element);
-          arr.push(<Cards param={{
-              data: element,
-              setdata : param.setdata
-              
-  
-          }} />)
-      });
-      param.setenddata(arr);
-      }
+    function setDefaultEndData(arrdata) {
+        /// console.log("Form setDefaultEndData");
+        let arr = [];
+        arrdata.forEach(element => {
+
+            ///console.log(element);
+            arr.push(<Cards param={{
+                data: element,
+                setdata: param.setdata
+
+
+            }} />)
+        });
+        param.setenddata(arr);
+    }
 
     useEffect(() => {
 
         if (param.data) {
-            
+
             //set the finalcount for NavCard
             let arr = [];
             let arr2 = [];
@@ -390,44 +378,44 @@ function NavCard({ param, children }) {
             let finalcount;
             if (p == g) {
                 finalcount = g
-                
+
             } else {
                 finalcount = g + 1;
             }
 
             //using finalcount to update lstate
-           /// console.log('from param.cou effect');
-           /// console.log(`finalcount = ${finalcount}`)
+            /// console.log('from param.cou effect');
+            /// console.log(`finalcount = ${finalcount}`)
             fetchData.reset(); //reset the fetchData pos, so array can be fetched
-            
-            for(let i = 0; i <finalcount; i++){
-                for(let j=0; j < 10; j++){
+
+            for (let i = 0; i < finalcount; i++) {
+                for (let j = 0; j < 10; j++) {
                     let out = fetchData.getVal();
-                    if(out != false){
+                    if (out != false) {
                         arr2.push(out);
-                 }else{
-                    
-                    break;
-                 }
+                    } else {
+
+                        break;
+                    }
                 }
-               /// console.log(arr2);
-               
+                /// console.log(arr2);
+
                 arr.push(<NavCardButt param={{
-                    setenddata : param.setenddata,
-                    data :arr2,
-                    swiequalent : i+1,
-                    setdata : param.setdata,
+                    setenddata: param.setenddata,
+                    data: arr2,
+                    swiequalent: i + 1,
+                    setdata: param.setdata,
                 }}>
-                    {i+1}
+                    {i + 1}
                 </NavCardButt>)
-                if(i == 0){
+                if (i == 0) {
                     arr3 = arr2;
                 }
                 arr2 = [];
             }
-        setDefaultEndData(arr3);
+            setDefaultEndData(arr3);
             setlstate(arr);
-            }
+        }
     }, [param.data])
     //............................................ 
 
@@ -497,15 +485,15 @@ function Main2({ param, children }) {
                     </div>
                     <div className="main2-i3">
 
-                        <MyContext2.Provider value={{swi2, setswi2}}>
+                        <MyContext2.Provider value={{ swi2, setswi2 }}>
 
-                       {data? <NavCard param={{
-                            cou: cou,
-                            setenddata: setenddata,
-                            data: data,
-                            setdata : setdata
-                            
-                        }} /> : 'No Data From Server'}
+                            {data ? <NavCard param={{
+                                cou: cou,
+                                setenddata: setenddata,
+                                data: data,
+                                setdata: setdata
+
+                            }} /> : 'No Data From Server'}
                         </MyContext2.Provider>
                     </div>
                 </div>
@@ -536,11 +524,7 @@ export { Main2 };
 //Functions Ahead....................................................
 async function fetchTrending(par) {
 
-<<<<<<< HEAD
-    let res = await fetch("http://localhost:3500/xt/api/fetch/trending",
-=======
     let res = await fetch("/xt/api/fetch/trending",
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         { method: "POST", headers: { 'content-type': 'application/json' } }
 
     );
@@ -559,22 +543,18 @@ async function fetchTrending(par) {
 
 async function fetchRecent(par) {
 
-<<<<<<< HEAD
-    let res = await fetch("http://localhost:3500/xt/api/fetch/recent",
-=======
     let res = await fetch("/xt/api/fetch/recent",
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         { method: "POST", headers: { 'content-type': 'application/json' } }
     );
 
     if (res.ok) {
-       /// console.log('connection succesfull');
+        /// console.log('connection succesfull');
 
         let js = await res.json();
         return js
     }
     else {
-       /// console.log('connection failed');
+        /// console.log('connection failed');
         return false;
     }
 

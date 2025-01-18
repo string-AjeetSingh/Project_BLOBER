@@ -9,29 +9,29 @@ let MyContext2 = createContext('defalut value');
 
 
 function Cards({ param, children }) {
-    const deleteButt =useRef(null);
+    const deleteButt = useRef(null);
     ///console.log('below data from cards');
     ////console.log(param.data);
-     
-  
+
+
     //............................................................
     function handleDelete() {
-       ////console.log("form handleDelete");
-       ////console.log(param.data.name);
-        
+        ////console.log("form handleDelete");
+        ////console.log(param.data.name);
+
         ///console.log("attempt to delete post");
         deletepost(param.data.name)
-        .then((result) => {
-            ///console.log(result);
-            
-            ///console.log(" now attempt to fetchRecent");
-            fetchRecentPostUser()
-            .then((res) => {
-                param.setdata(res);
-                })
-                })
-                /* 
-        */
+            .then((result) => {
+                ///console.log(result);
+
+                ///console.log(" now attempt to fetchRecent");
+                fetchRecentPostUser()
+                    .then((res) => {
+                        param.setdata(res);
+                    })
+            })
+        /* 
+*/
 
 
     }
@@ -51,7 +51,7 @@ function Cards({ param, children }) {
                     </div>
                     <Like param={{
                         name: param.data.name,
-                       
+
                     }}></Like>
                 </div>
                 <div className="card-title">
@@ -73,7 +73,7 @@ function Cards({ param, children }) {
 
 function Like({ param, children }) {
     const [lstate, setlstate] = useState(null);
-   
+
 
 
 
@@ -81,16 +81,12 @@ function Like({ param, children }) {
 
     async function fetchLike() {
         ///console.log("From fetchLike() below");
-      ///console.log(param.name);
+        ///console.log(param.name);
         let data = {
             name: param.name
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/fetch/like',
-=======
         let res = await fetch('/xt/api/fetch/like',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -111,11 +107,7 @@ function Like({ param, children }) {
             name: param.name
         }
 
-<<<<<<< HEAD
-        let res = await fetch('http://localhost:3500/xt/api/like',
-=======
         let res = await fetch('/xt/api/like',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
@@ -142,7 +134,7 @@ function Like({ param, children }) {
 
     useEffect(() => {
 
-       
+
         fetchLike()
             .then((res) => {
                 setlstate(res.data);
@@ -165,62 +157,62 @@ function Like({ param, children }) {
     );
 }
 
-function NavCardButt({param, children}){
-    
-    const {swi, setswi} = useContext(MyContext2);
-    
+function NavCardButt({ param, children }) {
+
+    const { swi, setswi } = useContext(MyContext2);
+
     const aref = useRef();
 
-   ///console.log(' from naveCardButt');
+    ///console.log(' from naveCardButt');
     ///console.log(param.data);
 
-   
 
-    useEffect(()=>{
-        
-        if(swi){
+
+    useEffect(() => {
+
+        if (swi) {
             ///console.log(' from naveCardButt swi');
 
 
-            if(swi == param.swiequalent){
-                
-               ///console.log("setting the stuff");
-             
-                
-            aref.current.style.border = '2px solid black';
-        }else{
-            aref.current.style.border = '1px solid purple';
-            
+            if (swi == param.swiequalent) {
+
+                ///console.log("setting the stuff");
+
+
+                aref.current.style.border = '2px solid black';
+            } else {
+                aref.current.style.border = '1px solid purple';
+
+            }
         }
-    }
-        
+
     }, [swi])
 
 
 
-    function handleClick(){
-       setswi(param.swiequalent);
-       let arr = [];
-                param.data.forEach(element => {
-                arr.push(<Cards param={{
-                    data: element,
-                    setdata : param.setdata
-                    
+    function handleClick() {
+        setswi(param.swiequalent);
+        let arr = [];
+        param.data.forEach(element => {
+            arr.push(<Cards param={{
+                data: element,
+                setdata: param.setdata
 
-                }} />)
-            });
-            param.setenddata(arr);
+
+            }} />)
+        });
+        param.setenddata(arr);
 
     }
-    
+
     return (
-    <>
-    <button ref={aref} onClick={()=>{
-        handleClick();
-    }} className='nav-card-button'>
-        {children}
-    </button>
-     </>
+        <>
+            <button ref={aref} onClick={() => {
+                handleClick();
+            }} className='nav-card-button'>
+                {children}
+            </button>
+        </>
     );
 }
 
@@ -228,8 +220,8 @@ function NavCard({ param, children }) {
 
     let [lstate, setlstate] = useState(null);
     const refNavCardButtFunc = useRef(null);
-   
-    const {swi, setswi} = useContext(MyContext2);
+
+    const { swi, setswi } = useContext(MyContext2);
 
     //.........................................
     class useData {
@@ -249,7 +241,7 @@ function NavCard({ param, children }) {
                 return false;
             }
         }
-        reset(){
+        reset() {
             this.pos = 0;
         }
     }
@@ -261,34 +253,34 @@ function NavCard({ param, children }) {
     //........................................
 
     //............................................ 
-    function  setDefaultEndData(arrdata){
-      ///console.log("Form setDefaultEndData");
-      if(arrdata.length < 1){
-          param.setenddata(<h1 style={{
-            margin : '5px', padding : '5px'
-          }}>You Not Post Anything Yet - </h1>);
+    function setDefaultEndData(arrdata) {
+        ///console.log("Form setDefaultEndData");
+        if (arrdata.length < 1) {
+            param.setenddata(<h1 style={{
+                margin: '5px', padding: '5px'
+            }}>You Not Post Anything Yet - </h1>);
 
-      }else{
+        } else {
 
-          let arr = [];
-          arrdata.forEach(element => {
-            
-              ///console.log(element);
-              arr.push(<Cards param={{
-                  data: element,
-                  setdata : param.setdata
-                  
-                  
+            let arr = [];
+            arrdata.forEach(element => {
+
+                ///console.log(element);
+                arr.push(<Cards param={{
+                    data: element,
+                    setdata: param.setdata
+
+
                 }} />)
             });
-    param.setenddata(arr);
+            param.setenddata(arr);
         }
     }
 
     useEffect(() => {
         if (param.data) {
-         
-            
+
+
             //set the finalcount for NavCard
             let arr = [];
             let arr2 = [];
@@ -298,7 +290,7 @@ function NavCard({ param, children }) {
             let finalcount;
             if (p == g) {
                 finalcount = g
-                
+
             } else {
                 finalcount = g + 1;
             }
@@ -307,41 +299,41 @@ function NavCard({ param, children }) {
             ///console.log('from param.cou effect');
             ///console.log(`finalcount = ${finalcount}`)
             fetchData.reset(); //reset the fetchData pos, so array can be fetched
-            
-            for(let i = 0; i <finalcount; i++){
-                for(let j=0; j < 10; j++){
+
+            for (let i = 0; i < finalcount; i++) {
+                for (let j = 0; j < 10; j++) {
                     let out = fetchData.getVal();
-                    if(out != false){
+                    if (out != false) {
                         arr2.push(out);
-                 }else{
-                    
-                    break;
-                 }
+                    } else {
+
+                        break;
+                    }
                 }
                 ///console.log(arr2);
-               
+
                 arr.push(<NavCardButt param={{
-                    setenddata : param.setenddata,
-                    data :arr2,
-                    swiequalent : i+1,
-                    setdata : param.setdata,
-                    parRef : refNavCardButtFunc
+                    setenddata: param.setenddata,
+                    data: arr2,
+                    swiequalent: i + 1,
+                    setdata: param.setdata,
+                    parRef: refNavCardButtFunc
                 }}>
-                    {i+1}
+                    {i + 1}
                 </NavCardButt>)
-                if(i == 0){
+                if (i == 0) {
                     arr3 = arr2;
                 }
                 arr2 = [];
             }
-           setDefaultEndData(arr3);
+            setDefaultEndData(arr3);
             setlstate(arr);
 
         }
     }, [param.data])
 
-    useEffect(()=>{
-        if(lstate){
+    useEffect(() => {
+        if (lstate) {
             setswi(1);
         }
     }, [lstate])
@@ -370,7 +362,7 @@ function Write({ param, children }) {
     const aref = useRef(null);
     const bref = useRef(null);
     const cref = useRef(null);
-  
+
     //...........................................................
     function handlePost() {
         ///console.log('form handlePost');
@@ -387,22 +379,22 @@ function Write({ param, children }) {
 
                     setpost(''); settitle('');
 
-                    if(res.output){
+                    if (res.output) {
 
-                        
+
                         setTimeout(() => {       //if succesfull hava a timout to see some effect.
                             setpoststatus('Post');
                             aref.current.disabled = false;
                             bref.current.disabled = false;
                             cref.current.style.backgroundColor = 'palevioletred';
-                            
+
                             alert("succesfully post");
                         }, 1000);
                     }
-                    else{
+                    else {
                         alert('An error from server');
                     }
-                        
+
                     setpost(''); settitle('');
                     ///console.log("goind to fetchREcent");
                     fetchRecentPostUser()
@@ -419,7 +411,7 @@ function Write({ param, children }) {
             })
     }
 
-    
+
     useEffect(() => {
 
 
@@ -432,14 +424,14 @@ function Write({ param, children }) {
     }, [data]);
 
     useEffect(() => {
-       
+
         fetchRecentPostUser()
             .then((data) => {
                 ///console.log(data);
                 setdata(data);
             });
     }, [])
-   ///console.log(post);
+    ///console.log(post);
     //...........................................................
 
 
@@ -467,7 +459,7 @@ function Write({ param, children }) {
                             className="write-post"
                             ref={bref}>
                         </textarea>
-                        <button  onClick={async () => {
+                        <button onClick={async () => {
                             await ButtonAnimation(cref)
                             ///console.log("Posting");
                             handlePost();
@@ -486,14 +478,14 @@ function Write({ param, children }) {
                         </div>
 
                         <div className="content-i3">
-                        <MyContext2.Provider value={{swi, setswi}}>
-                            {data ? <NavCard param={{
-                                cou: cou,
-                                setenddata: setenddata,
-                                data: data,
-                                setdata : setdata
-                                
-                            }} /> : 'Data not found'}
+                            <MyContext2.Provider value={{ swi, setswi }}>
+                                {data ? <NavCard param={{
+                                    cou: cou,
+                                    setenddata: setenddata,
+                                    data: data,
+                                    setdata: setdata
+
+                                }} /> : 'Data not found'}
                             </MyContext2.Provider>
                         </div>
                     </div>
@@ -535,11 +527,7 @@ export { Write };
 //Function Ahead.....................................
 async function fetchRecentPostUser() {
 
-<<<<<<< HEAD
-    let res = await fetch("http://localhost:3500/xt/api/fetch/recentPostUser",
-=======
     let res = await fetch("/xt/api/fetch/recentPostUser",
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         {
             method: "POST", headers: { 'content-type': 'application/json' },
             credentials: 'include'
@@ -563,11 +551,7 @@ async function deletepost(par) {
     let data = {
         name: par
     }
-<<<<<<< HEAD
-    let res = await fetch("http://localhost:3500/xt/api/deletePost",
-=======
     let res = await fetch("/xt/api/deletePost",
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         {
             method: "POST", headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -592,11 +576,7 @@ async function createPost(par) {
         title: par.title,
         data: par.data
     }
-<<<<<<< HEAD
-    let res = await fetch("http://localhost:3500/xt/api/createPost",
-=======
     let res = await fetch("/xt/api/createPost",
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
         {
             method: "POST", headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data), credentials: 'include'
