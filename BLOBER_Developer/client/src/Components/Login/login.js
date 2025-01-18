@@ -21,7 +21,7 @@ function Login() {
 
     function handleSubmit() {
 
-      ///  console.log("form handleSubmit()");
+        ///  console.log("form handleSubmit()");
 
         if (!email.includes("@gmail.com")) {
             alert("please enter valid email id");
@@ -37,11 +37,7 @@ function Login() {
             pass: pass
         }
 
-<<<<<<< HEAD
-        fetch('http://localhost:3500/xt/api/login',
-=======
         fetch('/xt/api/login',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST', body: JSON.stringify(data),
                 headers: { 'content-type': 'application/json' },
@@ -50,10 +46,10 @@ function Login() {
         ).then((res) => {
 
             if (res.ok) {
-               /// console.log("succesfull connection");
+                /// console.log("succesfull connection");
             }
             else {
-               /// console.log("Not connected");
+                /// console.log("Not connected");
             }
             res.json().then((js) => {
                 ///console.log(js);
@@ -73,13 +69,9 @@ function Login() {
     }
 
     function checkLogin() {
-      ///  console.log("Recently loaded");
+        ///  console.log("Recently loaded");
 
-<<<<<<< HEAD
-        fetch('http://localhost:3500/xt/api/checkLogin',
-=======
         fetch('/xt/api/checkLogin',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
             {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
@@ -88,13 +80,13 @@ function Login() {
         ).then((res) => {
 
             if (res.ok) {
-               /// console.log("succesfull connection");
+                /// console.log("succesfull connection");
             }
             else {
-               /// console.log("Not connected");
+                /// console.log("Not connected");
             }
             res.json().then((js) => {
-               /// console.log(js);
+                /// console.log(js);
 
                 if (js.output) {   //User Logged in ---------------------
 
@@ -143,7 +135,7 @@ function Login() {
                             <button ref={submitButt} onClick={async (e) => {
                                 e.preventDefault();
                                 await ButtonAnimation(submitButt);
-                               /// console.log('Attemp to submit');
+                                /// console.log('Attemp to submit');
                                 handleSubmit();
                             }} className="login-submit">
                                 Submit

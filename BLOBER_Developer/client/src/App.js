@@ -25,11 +25,7 @@ function App({ param, children }) {
   function checkLogin(mode = 'default') {
     ///console.log("Recently loaded");
 
-<<<<<<< HEAD
-    fetch('http://localhost:3500/xt/api/checkLogin',
-=======
-    fetch('/xt/api/checkLogin',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
+    fetch('xt/api/checkLogin',
       {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -41,24 +37,20 @@ function App({ param, children }) {
         ///console.log("succesfull connection");
       }
       else {
-       ///console.log("Not connected");
+        ///console.log("Not connected");
       }
       res.json().then((js) => {
         ///console.log(js);
 
         if (js.output) {   //User Logged in ---------------------
-          sethloginname(js.data);   
+          sethloginname(js.data);
 
           if (mode == 'write') {
-            setMain(<Write/>);
+            setMain(<Write />);
 
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
-<<<<<<< HEAD
-              fetch('http://localhost:3500/xt/api/logout',
-=======
               fetch('/xt/api/logout',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -71,7 +63,7 @@ function App({ param, children }) {
                     if (js.output) {
                       ///alert(js.mess);
                       navigate('/');
-                      
+
                     }
                     else {
                       ///alert(js.mess)
@@ -94,16 +86,12 @@ function App({ param, children }) {
             )
           }
           if (mode == 'postbox') {
-          
+
             setMain(<PostBox></PostBox>);
 
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
-<<<<<<< HEAD
-              fetch('http://localhost:3500/xt/api/logout',
-=======
               fetch('/xt/api/logout',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -114,12 +102,12 @@ function App({ param, children }) {
                   ///console.log('Connection succesfull');
                   res.json().then((js) => {
                     if (js.output) {
-                     /// alert(js.mess);
+                      /// alert(js.mess);
                       navigate('/');
-                     
+
                     }
                     else {
-                     /// alert(js.mess)
+                      /// alert(js.mess)
                     }
                   })
 
@@ -139,15 +127,11 @@ function App({ param, children }) {
             )
           }
           if (mode == 'about') {
-            setMain(<About/>);
+            setMain(<About />);
 
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
-<<<<<<< HEAD
-              fetch('http://localhost:3500/xt/api/logout',
-=======
               fetch('/xt/api/logout',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -160,7 +144,7 @@ function App({ param, children }) {
                     if (js.output) {
                       ///alert(js.mess);
                       navigate('/');
-                      
+
                     }
                     else {
                       ///alert(js.mess)
@@ -191,11 +175,7 @@ function App({ param, children }) {
             setloginButt(<div ref={loginButtAnim} onClick={async () => {
               await ButtonAnimation(loginButtAnim);
 
-<<<<<<< HEAD
-              fetch('http://localhost:3500/xt/api/logout',
-=======
               fetch('/xt/api/logout',
->>>>>>> 4a7349f987241d86d79d38f3226f1845c0ca0068
                 {
                   method: 'POST',
                   headers: { 'content-type': 'application/json' },
@@ -206,10 +186,10 @@ function App({ param, children }) {
                   ///console.log('Connection succesfull');
                   res.json().then((js) => {
                     if (js.output) {
-                     /// alert(js.mess);
+                      /// alert(js.mess);
                       navigate('/');
                       checkLogin(mode);
-                      
+
                     }
                     else {
                       ///alert(js.mess)
@@ -234,18 +214,18 @@ function App({ param, children }) {
           }
         } else {     //User not Logged in -------------
           sethloginname(null);
-          if(mode == 'write'){
+          if (mode == 'write') {
             navigate('/');
           }
-          else if(mode == 'postbox'){
+          else if (mode == 'postbox') {
             navigate('/');
           }
-          else if(mode == 'about'){
-            setMain(<About/>);
+          else if (mode == 'about') {
+            setMain(<About />);
 
-           
+
             setloginButt(
-              <div ref={loginButtAnim} onClick={async() => {
+              <div ref={loginButtAnim} onClick={async () => {
                 await ButtonAnimation(loginButtAnim);
                 navigate('/Login');
               }} className='nav-button'>Login</div>
@@ -258,27 +238,27 @@ function App({ param, children }) {
               }} className='nav-button'>Home</div>
             )
           }
-          else if(mode == 'default'){
+          else if (mode == 'default') {
 
-           /// alert("Not Loged in");
+            /// alert("Not Loged in");
             setMain(<Main></Main>);
-            
-            
+
+
             setloginButt(
-              <div ref={loginButtAnim} onClick={async() => {
+              <div ref={loginButtAnim} onClick={async () => {
                 await ButtonAnimation(loginButtAnim);
                 navigate('Login');
               }} className='nav-button'>Login</div>
             )
-            
+
             setwriteButt(
               <div ref={writeButtAnim} onClick={async () => {
                 await ButtonAnimation(writeButtAnim);
                 navigate('Login');
-            }} className='nav-button'>Write</div>
-          )
-          
-        }
+              }} className='nav-button'>Write</div>
+            )
+
+          }
           return 0;
         }
       })
