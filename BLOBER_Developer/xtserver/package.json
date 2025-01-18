@@ -1,8 +1,8 @@
 {
   "name": "xtserver",
   "version": "1.0.0",
-  "description": "Server for new project of react",
-  "main": "index.js",
+  "description": "Server for BLOBER",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
